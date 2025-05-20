@@ -28,7 +28,6 @@ const Home = () => {
 
     return (
         <div className="bg-[#0f172a] min-h-screen text-white px-6 py-12">
-            {/* Intro Section */}
             <div className="max-w-4xl mx-auto text-center space-y-6 mb-12">
                 <h1 className="text-4xl font-bold">Page Replacement Algorithm Simulator</h1>
                 <p className="text-lg text-gray-300 leading-relaxed">
@@ -39,7 +38,7 @@ const Home = () => {
                 <img 
                     src={page} 
                     alt="Page Replacement Illustration" 
-                    className="mx-auto w-[300px] h-[300px] object-contain rounded" 
+                    className="mx-auto w-[300px] h-[300px] object-contain rounded-2xl" 
                 />
                 <Link 
                     to="/simulator" 
@@ -62,15 +61,14 @@ const Home = () => {
                 ))}
             </div>
 
-            {/* Algorithms Section */}
             <div className="text-center space-y-10">
                 <h1 className="text-4xl font-bold">The Page Replacement Algorithms</h1>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 justify-center">
-                    <img src={LRU} alt="Least Recently Used (LRU)" className="h-40 w-40 object-contain mx-auto hover:scale-105 transition" />
-                    <img src={MRU} alt="Most Recently Used (MRU)" className="h-40 w-40 object-contain mx-auto hover:scale-105 transition" />
-                    <img src={SF} alt="Second Chance / FIFO (SF)" className="h-40 w-40 object-contain mx-auto hover:scale-105 transition" />
-                    <img src={OPR} alt="Optimal Page Replacement (OPR)" className="h-40 w-40 object-contain mx-auto hover:scale-105 transition" />
-                    <img src={FCFS} alt="First Come First Serve (FCFS)" className="h-40 w-40 object-contain mx-auto hover:scale-105 transition" />
+                    <img src={LRU} alt="Least Recently Used (LRU)" className="h-40 w-40 object-contain mx-auto hover:scale-105 transition rounded-2xl" />
+                    <img src={MRU} alt="Most Recently Used (MRU)" className="h-40 w-40 object-contain mx-auto hover:scale-105 transition rounded-2xl" />
+                    <img src={SF} alt="Second Chance / FIFO (SF)" className="h-40 w-40 object-contain mx-auto hover:scale-105 transition rounded-2xl" />
+                    <img src={OPR} alt="Optimal Page Replacement (OPR)" className="h-40 w-40 object-contain mx-auto hover:scale-105 transition rounded-2xl" />
+                    <img src={FCFS} alt="First Come First Serve (FCFS)" className="h-40 w-40 object-contain mx-auto hover:scale-105 transition rounded-2xl" />
                 </div>
                 <Link 
                     to="/blog" 
