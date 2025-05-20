@@ -39,7 +39,7 @@ const Home = () => {
                 <img 
                     src={page} 
                     alt="Page Replacement Illustration" 
-                    className="mx-auto w-[300px] h-[300px] object-contain" 
+                    className="mx-auto w-[300px] h-[300px] object-contain rounded" 
                 />
                 <Link 
                     to="/simulator" 
