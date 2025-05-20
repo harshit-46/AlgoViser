@@ -5,7 +5,7 @@ import FCFS_EX from '../assets/images/fifo.jpg';
 import OPR_EX from '../assets/images/opr.jpg';
 import LRU_EX from '../assets/images/lru.jpg';
 import MRU_EX from '../assets/images/mru.jpg';
-import SF_EX from '../assets/images/os2.jpg';
+import SF_EX from '../assets/images/SFJPG.png';
 
 const Blog = () => {
     const [activeTab, setActiveTab] = useState('FCFS');
