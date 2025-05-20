@@ -72,7 +72,7 @@ const Home = () => {
                 </div>
                 <Link 
                     to="/blog" 
-                    className="inline-block bg-red-500 text-white px-6 py-3 rounded-full hover:bg-red-600 transition"
+                    className="font-semibold inline-block bg-red-500 text-white px-6 py-3 rounded-full hover:bg-red-600 transition"
                 >
                     Learn More
                 </Link>
