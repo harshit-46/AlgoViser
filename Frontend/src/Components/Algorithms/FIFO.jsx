@@ -63,7 +63,6 @@ const FIFO = (props) => {
 
     const frameHeaders = Array.from({ length: frames }, (_, i) => i + 1);
 
-    // FIFO Algorithm
     const fifoResultGiver = (frame, seq) => {
         let pageFaults = 0;
         let temp = Array(frame).fill(-1);

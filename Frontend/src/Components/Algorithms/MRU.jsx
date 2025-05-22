@@ -56,7 +56,6 @@ const MRU = (props) => {
     let arr = [];
     for (let i = 0; i < frames; i++) arr.push(i + 1);
 
-    // For creating frames
     const frameCreator = (f) => {
         return (
             <>
@@ -72,9 +71,6 @@ const MRU = (props) => {
         );
     };
 
-    // MRU Result Maker
-    // Time complexity = O(page * frame)
-    // Space Complexity = O(page)
     const mruResultMaker = (frame, seq) => {
         console.log("MRU Result Maker");
 
@@ -90,17 +86,14 @@ const MRU = (props) => {
         let fault;
         let index_arr = [];
 
-        // declaring every element -1
         for (let i = 0; i < frames; i++) frame_arr[i] = -1;
 
-        // for every page in sequence
         for (let i = 0; i < seq.length; i++) {
             flag1 = 0;
             flag2 = 0;
             hit = false;
             fault = false;
 
-            //  if page already available in frame_arr
             for (let j = 0; j < frame; j++) {
                 if (seq[i] === frame_arr[j]) {
                     flag1 = 1;
@@ -111,7 +104,6 @@ const MRU = (props) => {
                 }
             }
 
-            //  if frame_arr contains -1
             if (flag1 === 0) {
                 for (let j = 0; j < frame; j++) {
                     if (frame_arr[j] === -1) {
@@ -125,7 +117,6 @@ const MRU = (props) => {
                 }
             }
 
-            // For finding position of element which is most recently used
             if (flag2 === 0) {
                 let prev = seq[i - 1];
                 for (let j = 0; j < frame; j++) {
@@ -140,7 +131,6 @@ const MRU = (props) => {
                 index_arr.push(pos);
             }
 
-            // Push all elements into frame_arr array
             let elements = [];
             elements.push(`P${i + 1}   (${seq[i]})`);
 
@@ -155,7 +145,6 @@ const MRU = (props) => {
         return { result, faults, index_arr };
     };
 
-    // Creating row for table
     const rowResultMaker = (frame, seq) => {
         const { result, index_arr } = mruResultMaker(frame, seq);
 
@@ -234,9 +223,6 @@ const MRU = (props) => {
     return (
         <>
             <TableHeader
-                // page={props.page}
-                // frame={props.frame}
-                // pageSeq={props.mainSeq}
                 algoName={"MRU (Most Recently Used)"}
             />
 

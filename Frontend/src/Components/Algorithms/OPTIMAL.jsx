@@ -260,9 +260,6 @@ const OPR = (props) => {
     return (
         <>
             <TableHeader
-                // page={props.page}
-                // frame={props.frame}
-                // pageSeq={props.mainSeq}
                 algoName={"OPR (Optimal Page Replacement)"}
             />
 

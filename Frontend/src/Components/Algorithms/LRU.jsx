@@ -74,7 +74,6 @@ const LRU = (props) => {
         );
     };
 
-    // To find least recently used element's position
     const findLru = (temp, frame) => {
         let minimum = temp[0];
         let pos = 0;
@@ -88,10 +87,6 @@ const LRU = (props) => {
         return pos;
     };
 
-    // LRU Algo code
-
-    // Time complexity = O(page * frame)
-    // Space Complexity = O(page)
     const lruResultMaker = (frame, seq) => {
         console.log("LRU Result Maker");
         let temp = [];
@@ -108,18 +103,15 @@ const LRU = (props) => {
         let fault;
         let index_arr = [];
 
-        // initialize every element to -1
         for (let i = 0; i < frames; i++)
             frame_arr[i] = -1;
 
-        // Page sequence iteration
         for (let i = 0; i < seq.length; i++) {
             flag1 = 0;
             flag2 = 0;
             hit = false;
             fault = false;
 
-            // If page seq already in array
             for (let j = 0; j < frame; j++) {
                 if (seq[i] === frame_arr[j]) {
                     counter++;
@@ -132,7 +124,6 @@ const LRU = (props) => {
                 }
             }
 
-            //  Check if frame_arr contains -1
             if (flag1 === 0) {
                 for (let j = 0; j < frame; j++) {
                     if (frame_arr[j] === -1) {
@@ -148,7 +139,6 @@ const LRU = (props) => {
                 }
             }
 
-            // to get the position of least recently used
             if (flag2 === 0) {
                 pos = findLru(temp, frame);
                 faults++;
@@ -159,7 +149,6 @@ const LRU = (props) => {
                 fault = true;
             }
 
-            // initialize array and push current array into it
             let elements = [];
             elements.push(`P${i + 1}   (${seq[i]})`);
             for (let j = 0; j < frame; j++) elements.push(frame_arr[j]);

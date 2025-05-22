@@ -68,6 +68,7 @@ const SF = (props) => {
         );
     };
 
+    // Custom Algorithm
     const FARAlgo = (frame, seq) => {
         let memory = [];
         let pageFaults = 0;

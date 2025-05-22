@@ -45,10 +45,8 @@ const Simulator = () => {
                     Then click one of the buttons (FCFS, OPR, LRU, MRU) to simulate the algorithm. Use RESET to clear inputs.
                 </p>
             </div>
-
             <div className="border border-gray-400 rounded-2xl p-10 w-full max-w-xl bg-[#1e293b] mt-4">
                 <h1 className="text-4xl text-center font-semibold mb-10">Simulator</h1>
-
                 <div className="mb-6">
                     <label className="block mb-2 text-lg">Enter Number of Frames</label>
                     <input
@@ -58,7 +56,6 @@ const Simulator = () => {
                         onChange={(e) => setFrames(e.target.value)}
                     />
                 </div>
-
                 <div className="mb-6">
                     <label className="block mb-2 text-lg">Enter The Page Sequence</label>
                     <input
@@ -69,7 +66,6 @@ const Simulator = () => {
                         onChange={(e) => setSequence(e.target.value)}
                     />
                 </div>
-
                 <div className="flex justify-around gap-4 flex-wrap mb-6">
                     <button onClick={() => handleSimulate('FIFO')} className="bg-red-500 hover:bg-red-600 px-4 py-2 rounded font-semibold cursor-pointer">FCFS</button>
                     <button onClick={() => handleSimulate('OPR')} className="bg-red-500 hover:bg-red-600 px-4 py-2 rounded font-semibold cursor-pointer">OPR</button>
@@ -79,8 +75,6 @@ const Simulator = () => {
                     <button onClick={handleReset} className="bg-red-500 hover:bg-red-600 px-4 py-2 rounded font-semibold cursor-pointer">RESET</button>
                 </div>
             </div>
-
-            {/* Render selected algorithm */}
             <div className="mt-10 w-full px-4">
                 {selectedAlgo === 'FIFO' && (
                     <FIFO frame={parseInt(frames)} seq={parsedSequence} mainSeq={sequence} />
