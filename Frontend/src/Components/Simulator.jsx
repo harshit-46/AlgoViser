@@ -1,4 +1,9 @@
 import {useState} from 'react';
+import FIFO from './Algorithms/FIFO';
+import LRU from './Algorithms/LRU';
+import SF from './Algorithms/SF';
+import MRU from './Algorithms/MRU';
+import OPTIMAL from './Algorithms/OPTIMAL';
 
 const Simulator = () => {
     const [frames, setFrames] = useState('');
@@ -77,11 +82,21 @@ const Simulator = () => {
 
             {/* Render selected algorithm */}
             <div className="mt-10 w-full px-4">
-                {selectedAlgo === 'FCFS' && (
+                {selectedAlgo === 'FIFO' && (
                     <FIFO frame={parseInt(frames)} seq={parsedSequence} mainSeq={sequence} />
                 )}
-                {/* Add similar conditional render blocks for other algorithms */}
-                {/* {selectedAlgo === 'LRU' && <LRU frame={...} seq={...} />} */}
+                {selectedAlgo === 'LRU' && (
+                    <LRU frame={parseInt(frames)} seq={parsedSequence} mainSeq={sequence} />
+                )}
+                {selectedAlgo === 'MRU' && (
+                    <MRU frame={parseInt(frames)} seq={parsedSequence} mainSeq={sequence} />
+                )}
+                {selectedAlgo === 'OPR' && (
+                    <OPTIMAL frame={parseInt(frames)} seq={parsedSequence} mainSeq={sequence} />
+                )}
+                {selectedAlgo === 'SF' && (
+                    <SF frame={parseInt(frames)} seq={parsedSequence} mainSeq={sequence} />
+                )}
             </div>
         </div>
     );

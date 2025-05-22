@@ -135,7 +135,7 @@ const FIFO = (props) => {
 
     return (
         <>
-            <TableHeader algoName={"FIFO (First-In-First-Out)"} />
+            <TableHeader algoName={"FCFS (First Come First Serve)"} />
 
             <Box className={classes.table}>
                 <table>

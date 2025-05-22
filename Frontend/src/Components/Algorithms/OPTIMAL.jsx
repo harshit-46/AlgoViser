@@ -46,7 +46,7 @@ const useStyles = makeStyles({
     },
 });
 
-const MRU = (props) => {
+const OPR = (props) => {
     const classes = useStyles();
 
     const frames = props.frame;
@@ -54,9 +54,10 @@ const MRU = (props) => {
     const pageSeq = props.seq;
 
     let arr = [];
-    for (let i = 0; i < frames; i++) arr.push(i + 1);
+    for (let i = 0; i < frames; i++) {
+        arr.push(i + 1);
+    }
 
-    // For creating frames
     const frameCreator = (f) => {
         return (
             <>
@@ -71,18 +72,14 @@ const MRU = (props) => {
             </>
         );
     };
-
-    // MRU Result Maker
-    // Time complexity = O(page * frame)
-    // Space Complexity = O(page)
-    const mruResultMaker = (frame, seq) => {
-        console.log("MRU Result Maker");
-
+    const oprResultMaker = (frame, seq) => {
+        console.log("OPR Result Maker");
+        let temp = [];
         let flag1;
         let flag2;
-
+        let flag3;
         let pos;
-
+        let max;
         let faults = 0;
         let result = [];
         let frame_arr = [];
@@ -90,17 +87,16 @@ const MRU = (props) => {
         let fault;
         let index_arr = [];
 
-        // declaring every element -1
-        for (let i = 0; i < frames; i++) frame_arr[i] = -1;
+        for (let i = 0; i < frames; i++) {
+            frame_arr[i] = -1;
+        }
 
-        // for every page in sequence
         for (let i = 0; i < seq.length; i++) {
             flag1 = 0;
             flag2 = 0;
             hit = false;
             fault = false;
 
-            //  if page already available in frame_arr
             for (let j = 0; j < frame; j++) {
                 if (seq[i] === frame_arr[j]) {
                     flag1 = 1;
@@ -111,53 +107,83 @@ const MRU = (props) => {
                 }
             }
 
-            //  if frame_arr contains -1
             if (flag1 === 0) {
                 for (let j = 0; j < frame; j++) {
                     if (frame_arr[j] === -1) {
                         faults++;
                         frame_arr[j] = seq[i];
-                        fault = true;
-                        flag2 = 1;
                         index_arr.push(j);
+                        flag2 = 1;
+                        fault = true;
                         break;
                     }
                 }
             }
 
-            // For finding position of element which is most recently used
             if (flag2 === 0) {
-                let prev = seq[i - 1];
+                flag3 = 0;
+
                 for (let j = 0; j < frame; j++) {
-                    if (frame_arr[j] === prev) {
+                    temp[j] = -1;
+
+                    for (let k = i + 1; k < seq.length; k++) {
+                        if (frame_arr[j] === seq[k]) {
+                            temp[j] = k;
+
+                            break;
+                        }
+                    }
+                }
+
+                console.log("temp ", temp);
+
+                for (let j = 0; j < frame; j++) {
+                    if (temp[j] === -1) {
                         pos = j;
+                        flag3 = 1;
                         break;
                     }
                 }
-                faults++;
-                fault = true;
+
+                if (flag3 === 0) {
+                    max = temp[0];
+                    pos = 0;
+
+                    for (let j = 1; j < frame; j++) {
+                        if (temp[j] > max) {
+                            max = temp[j];
+                            pos = j;
+                        }
+                    }
+                }
                 frame_arr[pos] = seq[i];
                 index_arr.push(pos);
+                faults++;
+                fault = true;
             }
 
-            // Push all elements into frame_arr array
             let elements = [];
             elements.push(`P${i + 1}   (${seq[i]})`);
-
-            for (let j = 0; j < frame; j++) elements.push(frame_arr[j]);
-
-            if (hit === true) elements.push("HIT");
-            else if (fault === true) elements.push("FAULT");
+            for (let j = 0; j < frame; j++) {
+                elements.push(frame_arr[j]);
+            }
+            if (hit === true) {
+                elements.push("HIT");
+            } else if (fault === true) {
+                elements.push("FAULT");
+            }
 
             result.push(elements);
         }
 
+        console.log(result);
+        console.log("Total Page Faults : ", faults);
+
         return { result, faults, index_arr };
     };
 
-    // Creating row for table
     const rowResultMaker = (frame, seq) => {
-        const { result, index_arr } = mruResultMaker(frame, seq);
+        const { result, index_arr } = oprResultMaker(frame, seq);
 
         return (
             <>
@@ -228,7 +254,7 @@ const MRU = (props) => {
         );
     };
 
-    const { faults } = mruResultMaker(frames, pageSeq);
+    const { faults } = oprResultMaker(frames, pageSeq);
     const pageHits = pageSeq.length - faults;
 
     return (
@@ -237,7 +263,7 @@ const MRU = (props) => {
                 // page={props.page}
                 // frame={props.frame}
                 // pageSeq={props.mainSeq}
-                algoName={"MRU (Most Recently Used)"}
+                algoName={"OPR (Optimal Page Replacement)"}
             />
 
             <Box className={classes.table}>
@@ -295,4 +321,4 @@ const MRU = (props) => {
     );
 };
 
-export default MRU;
+export default OPR;
