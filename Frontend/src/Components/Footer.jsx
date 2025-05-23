@@ -1,4 +1,7 @@
 import React from "react";
+import { Link } from "react-router-dom";
+import Logo from '../assets/images/Logo1.png'
+import { FaArrowUpRightFromSquare } from "react-icons/fa6";
 import { FaLinkedin, FaFacebook, FaTwitter } from "react-icons/fa";
 
 export default function Footer() {
@@ -15,31 +18,31 @@ export default function Footer() {
                     <div>
                         <p className="text-sm text-gray-400 mb-1">Contact us at:</p>
                         <a
-                            href="mailto:iddo.gino@datawizz.ai"
-                            className="text-lg font-medium text-white hover:text-purple-400 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400"
+                            href="iamharshit999@gmail.com"
+                            className="text-lg font-medium text-white hover:text-purple-400 inline-block transition focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400"
+                            target="_blank"
                         >
-                            iddo.gino@datawizz.ai
+                            iamharshit999@gmail.com <FaArrowUpRightFromSquare />
                         </a>
                     </div>
                 </div>
 
                 <div className="flex-1 flex flex-col justify-end items-start lg:items-end text-sm space-y-2">
                     <nav aria-label="Footer navigation" className="flex gap-6 text-white font-medium">
-                        <a href="#how-it-works" className="hover:text-purple-400 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400">How It Works</a>
-                        <a href="#benefits" className="hover:text-purple-400 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400">Benefits</a>
-                        <a href="#features" className="hover:text-purple-400 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400">Features</a>
-                        <a href="#team" className="hover:text-purple-400 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400">Team</a>
+                        <Link to='/' className="hover:text-purple-400 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400">Home</Link>
+                        <Link to='/about'  className="hover:text-purple-400 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400">About</Link>
+                        <Link to='/simulator'  className="hover:text-purple-400 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400">Simulator</Link>
+                        <Link to='/blog'  className="hover:text-purple-400 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400">Blog</Link>
+                        <Link to='/contact'  className="hover:text-purple-400 transition focus:outline-none focus-visible:ring-2 focus-visible:ring-purple-400">Contact</Link>
                     </nav>
                 </div>
             </div>
 
             <div className="mt-16 border-t border-gray-800 pt-10 flex flex-col md:flex-row justify-between items-center">
-                <a href="/" className="flex items-center gap-4 text-white text-4xl font-bold">
-                    <div className="bg-white text-black w-10 h-10 flex items-center justify-center rounded-md font-black">
-                        D
-                    </div>
+                <Link to="/" className="flex items-center gap-4 text-white text-4xl font-bold">
+                    <img src={Logo} alt="Logo" height="35px" width="35px" className="pt-1"/>
                     <span className="font-sans tracking-tight">Algoviser</span>
-                </a>
+                </Link>
 
                 <div className="text-sm text-gray-400 mt-6 md:mt-0 flex flex-col items-center md:items-end">
                     <p className="mb-2">© 2025 Algoviser. All rights reserved.</p>
@@ -51,7 +54,7 @@ export default function Footer() {
                             aria-label="LinkedIn"
                             title="LinkedIn"
                         >
-                            <FaLinkedin className="hover:text-blue-400 cursor-pointer transition" />
+                            <FaLinkedin className="hover:text-blue-500 cursor-pointer transition" />
                         </a>
                         <a
                             href="https://facebook.com"
@@ -69,7 +72,7 @@ export default function Footer() {
                             aria-label="Twitter"
                             title="Twitter"
                         >
-                            <FaTwitter className="hover:text-blue-300 cursor-pointer transition" />
+                            <FaTwitter className="hover:text-blue-500 cursor-pointer transition" />
                         </a>
                     </div>
                 </div>
