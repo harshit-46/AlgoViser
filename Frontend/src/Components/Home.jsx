@@ -29,7 +29,7 @@ const Home = () => {
     ];
 
     return (
-        <div className="bg-gradient-to-br from-black via-[#090B1F] to-black min-h-screen text-white px-6 py-12">
+        <div className="min-h-screen text-white px-6 py-12">
             <div className="max-w-4xl mx-auto text-center space-y-6 mb-12">
                 <h1 className="text-3xl md:text-4xl font-bold">Page Replacement Algorithm Simulator</h1>
                 <p className="text-base md:text-lg text-gray-300 leading-relaxed">

@@ -45,7 +45,7 @@ export default function ContactForm() {
 
 
     return (
-        <div className="min-h-screen bg-[#0f172a] flex flex-col items-center justify-center p-4">
+        <div className="min-h-screen flex flex-col items-center justify-center p-4">
             <h1 className="text-white text-4xl font-bold mb-12 text-center">
                 Let's Work Together
             </h1>

@@ -3,7 +3,7 @@ import { FaLinkedin, FaFacebook, FaTwitter } from "react-icons/fa";
 
 export default function Footer() {
     return (
-        <footer className="bg-gradient-to-br from-black via-[#090B1F] to-black text-white px-6 md:px-16 py-16">
+        <footer className="text-white px-6 md:px-16 py-16">
             <div className="max-w-7xl mx-auto flex flex-col lg:flex-row justify-between gap-16">
                 <div className="flex-1 space-y-6">
                     <div>

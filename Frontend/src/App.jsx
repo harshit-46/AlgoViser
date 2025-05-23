@@ -10,7 +10,7 @@ import './App.css';
 
 function App() {
   return (
-    <>
+    <div className='bg-gradient-to-br from-black via-[#090B1F] to-black'>
       <Navbar/>
       <Routes>
         <Route path="/" element={<Home />} />
@@ -20,7 +20,7 @@ function App() {
         <Route path="/contact" element={<Contact />} />
       </Routes>
       <Footer/>
-    </>
+    </div>
   )
 }
 

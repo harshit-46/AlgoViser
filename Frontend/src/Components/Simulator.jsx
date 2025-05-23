@@ -37,7 +37,7 @@ const Simulator = () => {
     };
 
     return (
-        <div className="min-h-screen bg-[#0f172a] flex flex-col items-center text-white px-4">
+        <div className="min-h-screen flex flex-col items-center text-white px-4">
             <div className="mb-6 text-center max-w-2xl">
                 <h2 className="text-5xl font-semibold mb-6 mt-8">How to Use:</h2>
                 <p className="text-gray-300">

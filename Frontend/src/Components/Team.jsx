@@ -30,7 +30,7 @@ const teamMembers = [
 
 export default function About() {
     return (
-        <div className="min-h-screen bg-[#0f172a] py-12">
+        <div className="min-h-screen py-12">
             <section className="text-white text-center px-4">
                 <h2 className="text-4xl font-bold">Our Executive Team</h2>
                 <p className="mt-4 text-gray-300 max-w-2xl mx-auto">

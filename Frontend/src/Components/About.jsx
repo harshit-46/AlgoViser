@@ -20,7 +20,7 @@ const fadeIn = {
 
 export default function About() {
     return (
-        <div className="bg-[#0f172a] text-white min-h-screen px-6 md:px-24 py-16">
+        <div className="text-white min-h-screen px-6 md:px-24 py-16">
             <motion.h1
                 className="text-5xl font-bold text-center mb-12"
                 initial={{ opacity: 0, y: -20 }}
