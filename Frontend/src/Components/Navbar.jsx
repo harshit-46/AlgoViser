@@ -1,3 +1,5 @@
+// [#340068]
+
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import logo from '../assets/images/Logo1.png';
@@ -17,7 +19,7 @@ export default function Navbar() {
     }, [menuOpen]);
 
     return (
-        <nav className="bg-[#340068] text-white relative z-50">
+        <nav className="bg-black text-white relative z-50">
             <div className="container mx-auto px-6 md:px-12 py-2 flex justify-between items-center h-14">
                 <Link to="/" className="flex items-center">
                     <img src={logo} alt="Algoviser Logo" className="h-7 w-7 mr-2" />

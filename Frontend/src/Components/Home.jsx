@@ -1,3 +1,5 @@
+// 0f172a
+
 import { Link } from 'react-router-dom';
 import page from '../assets/images/pageReplacement1.png';
 import LRU from '../assets/images/LRU.png';
@@ -27,10 +29,10 @@ const Home = () => {
     ];
 
     return (
-        <div className="bg-[#0f172a] min-h-screen text-white px-6 py-12">
+        <div className="bg-gradient-to-br from-black via-[#090B1F] to-black min-h-screen text-white px-6 py-12">
             <div className="max-w-4xl mx-auto text-center space-y-6 mb-12">
-                <h1 className="text-4xl font-bold">Page Replacement Algorithm Simulator</h1>
-                <p className="text-lg text-gray-300 leading-relaxed">
+                <h1 className="text-3xl md:text-4xl font-bold">Page Replacement Algorithm Simulator</h1>
+                <p className="text-base md:text-lg text-gray-300 leading-relaxed">
                     When a page fault occurs, the required page has to be brought from the secondary memory. 
                     If all the frames of main memory are already occupied, then a page has to be replaced. 
                     The page replacement algorithm decides which memory page is to be replaced.
@@ -38,18 +40,19 @@ const Home = () => {
                 <img 
                     src={page} 
                     alt="Page Replacement Illustration" 
+                    loading="lazy"
                     className="mx-auto w-[300px] h-[300px] object-contain rounded-2xl" 
                 />
                 <Link 
                     to="/simulator" 
-                    className="inline-block bg-red-500 hover:bg-red-600 text-white font-semibold px-6 py-3 rounded-full shadow transition"
+                    className="inline-block bg-red-500 hover:bg-red-600 text-white font-semibold px-6 py-3 rounded-full shadow transition focus:outline-none focus:ring-2 focus:ring-red-400"
                 >
                     Go to Simulator
                 </Link>
             </div>
 
             {/* Info Cards Section */}
-            <div className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16">
+            <section className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16" aria-labelledby="info-section">
                 {infoData.map((item, index) => (
                     <div
                         key={index}
@@ -59,24 +62,24 @@ const Home = () => {
                         <p className="text-gray-200">{item.desc}</p>
                     </div>
                 ))}
-            </div>
+            </section>
 
-            <div className="text-center space-y-10">
-                <h1 className="text-4xl font-bold">The Page Replacement Algorithms</h1>
+            <section className="text-center space-y-10" aria-labelledby="algo-section">
+                <h1 id="algo-section" className="text-3xl md:text-4xl font-bold">The Page Replacement Algorithms</h1>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 justify-center">
-                    <img src={LRU} alt="Least Recently Used (LRU)" className="h-40 w-40 object-contain mx-auto hover:scale-105 transition rounded-2xl" />
-                    <img src={MRU} alt="Most Recently Used (MRU)" className="h-40 w-40 object-contain mx-auto hover:scale-105 transition rounded-2xl" />
-                    <img src={SF} alt="Second Chance / FIFO (SF)" className="h-40 w-40 object-contain mx-auto hover:scale-105 transition rounded-2xl" />
-                    <img src={OPR} alt="Optimal Page Replacement (OPR)" className="h-40 w-40 object-contain mx-auto hover:scale-105 transition rounded-2xl" />
-                    <img src={FCFS} alt="First Come First Serve (FCFS)" className="h-40 w-40 object-contain mx-auto hover:scale-105 transition rounded-2xl" />
+                    <img src={LRU} alt="Least Recently Used (LRU)" loading="lazy" className="h-40 w-40 object-contain mx-auto hover:scale-105 transition rounded-2xl" />
+                    <img src={MRU} alt="Most Recently Used (MRU)" loading="lazy" className="h-40 w-40 object-contain mx-auto hover:scale-105 transition rounded-2xl" />
+                    <img src={SF} alt="Second Chance / FIFO (SF)" loading="lazy" className="h-40 w-40 object-contain mx-auto hover:scale-105 transition rounded-2xl" />
+                    <img src={OPR} alt="Optimal Page Replacement (OPR)" loading="lazy" className="h-40 w-40 object-contain mx-auto hover:scale-105 transition rounded-2xl" />
+                    <img src={FCFS} alt="First Come First Serve (FCFS)" loading="lazy" className="h-40 w-40 object-contain mx-auto hover:scale-105 transition rounded-2xl" />
                 </div>
                 <Link 
                     to="/blog" 
-                    className="font-semibold inline-block bg-red-500 text-white px-6 py-3 rounded-full hover:bg-red-600 transition"
+                    className="font-semibold inline-block bg-red-500 text-white px-6 py-3 rounded-full hover:bg-red-600 transition focus:outline-none focus:ring-2 focus:ring-red-400"
                 >
                     Learn More
                 </Link>
-            </div>
+            </section>
         </div>
     );
 };
