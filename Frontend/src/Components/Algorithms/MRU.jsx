@@ -3,10 +3,9 @@ import { Box, Typography, makeStyles } from "@material-ui/core";
 import PieChart from "./PieChart";
 import TableHeader from "./TableHeader";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
     table: {
         width: "100%",
-
         fontFamily: "arial, sans-serif",
         borderCollapse: "collapse",
         marginTop: 40,
@@ -16,6 +15,11 @@ const useStyles = makeStyles({
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 12,
+            width: "100%",
+            padding: "0 10px",
+        },
     },
     result: {
         "& tr:nth-child(even)": {
@@ -32,19 +36,42 @@ const useStyles = makeStyles({
         marginTop: 30,
         border: "1px solid white",
         borderRadius: "25px",
+        [theme.breakpoints.down("sm")]: {
+            padding: 10,
+        },
     },
     header: {
         fontSize: 46,
         textAlign: "center",
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 28,
+        },
     },
     sum: {
         padding: "40px",
+        [theme.breakpoints.down("sm")]: {
+            padding: "20px",
+        },
     },
     sumText: {
         fontSize: 30,
         textAlign: "left",
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 20,
+            textAlign: "center",
+        },
     },
-});
+    chart: {
+        width: "100%",
+        marginTop: 20,
+        display: "flex",
+        justifyContent: "center",
+        [theme.breakpoints.down("sm")]: {
+            flexDirection: "column",
+            alignItems: "center",
+        },
+    },
+}));
 
 const MRU = (props) => {
     const classes = useStyles();

@@ -1,5 +1,3 @@
-/*
-
 import React from "react";
 import { Box, Typography, makeStyles } from "@material-ui/core";
 import TableHeader from "./TableHeader";
@@ -38,23 +36,40 @@ const useStyles = makeStyles((theme) => ({
         marginTop: 30,
         border: "1px solid white",
         borderRadius: "25px",
+        [theme.breakpoints.down("sm")]: {
+            padding: 10,
+        },
     },
     header: {
         fontSize: 46,
         textAlign: "center",
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 28,
+        },
     },
     sum: {
         padding: "40px",
+        [theme.breakpoints.down("sm")]: {
+            padding: "20px",
+        },
     },
     sumText: {
         fontSize: 30,
         textAlign: "left",
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 20,
+            textAlign: "center",
+        }
     },
     chart: {
         width: "100%",
         marginTop: 20,
         display: "flex",
         justifyContent: "center",
+        [theme.breakpoints.down("sm")]: {
+            flexDirection: "column",
+            alignItems: "center",
+        },
     },
 }));
 
@@ -190,8 +205,10 @@ const FIFO = (props) => {
 
 export default FIFO;
 
-*/
 
+
+
+/*
 
 import React from "react";
 import { Box, Typography, makeStyles } from "@material-ui/core";
@@ -406,3 +423,6 @@ const FIFO = (props) => {
 };
 
 export default FIFO;
+
+
+*/

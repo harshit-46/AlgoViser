@@ -17,13 +17,8 @@ const useStyles = makeStyles((theme) => ({
         flexDirection: "column",
         [theme.breakpoints.down("sm")]: {
             fontSize: 12,
-        },
-    },
-    responsiveWrapper: {
-        width: "100%",
-        overflowX: "auto",
-        [theme.breakpoints.down("sm")]: {
-            padding: "0 8px",
+            width: "100%",
+            padding: "0 10px",
         },
     },
     result: {
@@ -35,9 +30,6 @@ const useStyles = makeStyles((theme) => ({
         border: "1px solid #dddddd",
         textAlign: "center",
         padding: "10px",
-        [theme.breakpoints.down("sm")]: {
-            padding: "6px",
-        },
     },
     summary: {
         textAlign: "center",
@@ -45,7 +37,7 @@ const useStyles = makeStyles((theme) => ({
         border: "1px solid white",
         borderRadius: "25px",
         [theme.breakpoints.down("sm")]: {
-            marginTop: 20,
+            padding: 10,
         },
     },
     header: {
@@ -65,7 +57,8 @@ const useStyles = makeStyles((theme) => ({
         fontSize: 30,
         textAlign: "left",
         [theme.breakpoints.down("sm")]: {
-            fontSize: 18,
+            fontSize: 20,
+            textAlign: "center",
         },
     },
     chart: {
@@ -73,6 +66,10 @@ const useStyles = makeStyles((theme) => ({
         marginTop: 20,
         display: "flex",
         justifyContent: "center",
+        [theme.breakpoints.down("sm")]: {
+            flexDirection: "column",
+            alignItems: "center",
+        },
     },
 }));
 

@@ -1,5 +1,3 @@
-// 340068
-
 import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import logo from '../assets/images/Logo1.png';
@@ -50,7 +48,7 @@ export default function Navbar() {
                 onClick={() => setMenuOpen(false)}></div>
             )}
 
-            <div className={`fixed top-0 right-0 h-full w-3/5 bg-gray-600 z-50 shadow-lg rounded-l-2xl transform transition-transform duration-300 ease-in-out ${menuOpen ? 'translate-x-0' : 'translate-x-full'} md:hidden`}>
+            <div className={`fixed top-0 right-0 h-full w-3/5 bg-gray-900 z-50 shadow-lg rounded-l-2xl transform transition-transform duration-300 ease-in-out ${menuOpen ? 'translate-x-0' : 'translate-x-full'} md:hidden`}>
 
                 <div className="flex justify-end p-4">
                     <button
