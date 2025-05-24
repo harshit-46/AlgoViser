@@ -12,7 +12,11 @@ mongoose
     .then(() => console.log("MongoDB connected."))
     .catch((err) => console.error(err));
 
-app.use(cors());
+app.use(cors({
+    origin: ["http://localhost:5173", "https://your-vercel-site.vercel.app"], 
+    methods: ["GET", "POST"],
+    credentials: true,
+}));
 app.use(bodyParser.json());
 
 app.get("/", (req, res) => {
