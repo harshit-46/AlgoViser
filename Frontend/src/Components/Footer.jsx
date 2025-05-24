@@ -47,9 +47,9 @@ export default function Footer() {
                     <span className="font-sans tracking-tight">Algoviser</span>
                 </Link>
 
-                <div className="text-sm text-gray-400 mt-6 md:mt-0 flex flex-col items-center md:items-end">
+                <div className="text-sm text-gray-400 mt-8 md:mt-0 flex flex-col items-center md:items-end">
                     <p className="mb-2">© 2025 Algoviser. All rights reserved.</p>
-                    <div className="flex gap-4 text-white text-lg">
+                    <div className="flex gap-4 text-white text-lg mt-6 md:mt-0">
                         <a
                             href="https://www.linkedin.com/in/harshithere/"
                             target="_blank"

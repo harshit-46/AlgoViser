@@ -62,7 +62,7 @@ const Blog = () => {
     }
 
     return (
-        <div className="min-h-screen text-white px-6 py-12">
+        <div className="min-h-screen text-white px-6 py-20">
             <h1 className="text-4xl font-bold text-center mb-12">Page Replacement Techniques</h1>
 
             <div className="flex justify-center flex-wrap gap-4 mb-12">

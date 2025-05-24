@@ -77,7 +77,7 @@ export default function About() {
 
                 <motion.div className="text-center mt-20" {...fadeIn}>
                     <h2 className="text-2xl font-bold mb-4">Ready to explore?</h2>
-                    <p className="text-purple-100 mb-6">
+                    <p className="text-purple-100 mb-8 py-4">
                         Dive into the simulator and watch memory management come alive.
                     </p>
                     <Link
@@ -95,7 +95,7 @@ export default function About() {
 function Section({ icon, title, children }) {
     return (
         <motion.div
-            className="bg-[#1e293b] bg-opacity-10 backdrop-blur-lg p-6 rounded-2xl shadow-md"
+            className="bg-[#1e293b] bg-opacity-10 backdrop-blur-lg p-6 rounded-2xl shadow-md border border-gray-400"
             {...fadeIn}
         >
             <h2 className="text-2xl font-semibold flex items-center gap-3 mb-4">
