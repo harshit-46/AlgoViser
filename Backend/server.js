@@ -15,7 +15,6 @@ mongoose
 app.use(cors());
 app.use(bodyParser.json());
 
-// Root route to check server status
 app.get("/", (req, res) => {
     res.send("Server is running!");
 });

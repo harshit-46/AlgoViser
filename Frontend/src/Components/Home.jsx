@@ -49,7 +49,6 @@ const Home = () => {
                 </Link>
             </div>
 
-            {/* Info Cards Section */}
             <section className="grid grid-cols-1 md:grid-cols-2 gap-8 max-w-6xl mx-auto mb-16" aria-labelledby="info-section">
                 {infoData.map((item, index) => (
                     <div
