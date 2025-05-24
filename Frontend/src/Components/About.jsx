@@ -75,27 +75,6 @@ export default function About() {
                     </ul>
                 </Section>
 
-                <motion.div
-                    className="bg-[#1e293b] bg-opacity-10 backdrop-blur-lg p-6 rounded-2xl shadow-md text-center"
-                    {...fadeIn}
-                >
-                    <h2 className="text-2xl font-semibold mb-4">🎥 Project Walkthrough</h2>
-                    <div className="aspect-video">
-                        <iframe
-                            className="w-full h-full rounded-lg"
-                            loading="lazy"
-                            src="https://www.youtube.com/embed/dQw4w9WgXcQ"
-                            title="Algoviser Walkthrough"
-                            frameBorder="0"
-                            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
-                            allowFullScreen
-                        ></iframe>
-                    </div>
-                    <p className="mt-4 text-purple-100">
-                        Watch how Algoviser makes memory management easier to understand.
-                    </p>
-                </motion.div>
-
                 <motion.div className="text-center mt-20" {...fadeIn}>
                     <h2 className="text-2xl font-bold mb-4">Ready to explore?</h2>
                     <p className="text-purple-100 mb-6">

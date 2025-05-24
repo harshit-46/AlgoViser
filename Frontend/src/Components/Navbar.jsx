@@ -27,11 +27,11 @@ export default function Navbar() {
                 </Link>
 
                 <div className="hidden md:flex items-center space-x-12">
-                    <Link to="/" className="font-semibold">HOME</Link>
-                    <Link to="/about" className="font-semibold">ABOUT</Link>
-                    <Link to="/simulator" className="font-semibold">SIMULATOR</Link>
-                    <Link to="/blog" className="font-semibold">BLOG</Link>
-                    <Link to="/contact" className="font-semibold">CONTACT</Link>
+                    <Link to="/" className="font-semibold hover:text-blue-400">HOME</Link>
+                    <Link to="/about" className="font-semibold hover:text-blue-400">ABOUT</Link>
+                    <Link to="/simulator" className="font-semibold hover:text-blue-400">SIMULATOR</Link>
+                    <Link to="/blog" className="font-semibold hover:text-blue-400">BLOG</Link>
+                    <Link to="/contact" className="font-semibold hover:text-blue-400">CONTACT</Link>
                 </div>
 
                 <button
@@ -46,10 +46,11 @@ export default function Navbar() {
             </div>
 
             {menuOpen && (
-                <div className="fixed inset-0 bg-opacity-50 z-40 md:hidden"></div>
+                <div className="fixed inset-0 bg-opacity-50 z-40 md:hidden"
+                onClick={() => setMenuOpen(false)}></div>
             )}
 
-            <div className={`fixed top-0 right-0 h-full w-3/4 bg-[#340068] z-50 shadow-lg rounded-l-2xl transform transition-transform duration-300 ease-in-out ${menuOpen ? 'translate-x-0' : 'translate-x-full'} md:hidden`}>
+            <div className={`fixed top-0 right-0 h-full w-3/5 bg-gray-600 z-50 shadow-lg rounded-l-2xl transform transition-transform duration-300 ease-in-out ${menuOpen ? 'translate-x-0' : 'translate-x-full'} md:hidden`}>
 
                 <div className="flex justify-end p-4">
                     <button
