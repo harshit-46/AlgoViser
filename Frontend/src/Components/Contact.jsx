@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import { ToastContainer, toast } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function ContactForm() {
     const [form, setForm] = useState({
@@ -16,7 +18,7 @@ export default function ContactForm() {
         e.preventDefault();
 
         if (!form.name || !form.email || !form.message) {
-            alert("Please fill out all fields.");
+            toast.error("Please fill out all fields.");
             return;
         }
 
@@ -32,20 +34,21 @@ export default function ContactForm() {
             const data = await res.json();
 
             if (res.ok) {
-                alert("Message sent!");
+                toast.success("Message sent!");
                 setForm({ name: "", email: "", message: "" });
             } else {
-                alert(data.error || "Something went wrong.");
+                toast.error(data.error || "Something went wrong.");
             }
         } catch (error) {
             console.error("Error:", error);
-            alert("Server error. Try again later.");
+            toast.error("Server error. Try again later.");
         }
     };
 
-
     return (
         <div className="min-h-screen flex flex-col items-center justify-center px-4 pt-2 md:pt-12">
+            <ToastContainer position="top-right" autoClose={3000} />
+
             <h1 className="text-white text-4xl font-bold mb-12 text-center">
                 Let's Work Together
             </h1>
