@@ -3,10 +3,9 @@ import { Box, Typography, makeStyles } from "@material-ui/core";
 import PieChart from "./PieChart";
 import TableHeader from "./TableHeader";
 
-const useStyles = makeStyles({
+const useStyles = makeStyles((theme) => ({
     table: {
         width: "100%",
-
         fontFamily: "arial, sans-serif",
         borderCollapse: "collapse",
         marginTop: 40,
@@ -16,6 +15,16 @@ const useStyles = makeStyles({
         alignItems: "center",
         justifyContent: "center",
         flexDirection: "column",
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 12,
+        },
+    },
+    responsiveWrapper: {
+        width: "100%",
+        overflowX: "auto",
+        [theme.breakpoints.down("sm")]: {
+            padding: "0 8px",
+        },
     },
     result: {
         "& tr:nth-child(even)": {
@@ -26,31 +35,50 @@ const useStyles = makeStyles({
         border: "1px solid #dddddd",
         textAlign: "center",
         padding: "10px",
+        [theme.breakpoints.down("sm")]: {
+            padding: "6px",
+        },
     },
     summary: {
         textAlign: "center",
         marginTop: 30,
         border: "1px solid white",
         borderRadius: "25px",
+        [theme.breakpoints.down("sm")]: {
+            marginTop: 20,
+        },
     },
     header: {
         fontSize: 46,
         textAlign: "center",
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 28,
+        },
     },
     sum: {
         padding: "40px",
+        [theme.breakpoints.down("sm")]: {
+            padding: "20px",
+        },
     },
     sumText: {
         fontSize: 30,
         textAlign: "left",
+        [theme.breakpoints.down("sm")]: {
+            fontSize: 18,
+        },
     },
-});
+    chart: {
+        width: "100%",
+        marginTop: 20,
+        display: "flex",
+        justifyContent: "center",
+    },
+}));
 
 const OPR = (props) => {
     const classes = useStyles();
-
     const frames = props.frame;
-
     const pageSeq = props.seq;
 
     let arr = [];
@@ -61,46 +89,34 @@ const OPR = (props) => {
     const frameCreator = (f) => {
         return (
             <>
-                {f.map((item, index) => {
-                    return (
-                        <th
-                            className={classes.main}
-                            style={{ backgroundColor: "#273c3c" }}
-                        >{`FRAME ${item}`}</th>
-                    );
-                })}
+                {f.map((item) => (
+                    <th
+                        key={item}
+                        className={classes.main}
+                        style={{ backgroundColor: "#273c3c" }}
+                    >{`FRAME ${item}`}</th>
+                ))}
             </>
         );
     };
+
     const oprResultMaker = (frame, seq) => {
-        console.log("OPR Result Maker");
         let temp = [];
-        let flag1;
-        let flag2;
-        let flag3;
-        let pos;
-        let max;
+        let flag1, flag2, flag3, pos, max;
         let faults = 0;
         let result = [];
-        let frame_arr = [];
-        let hit;
-        let fault;
+        let frame_arr = Array(frame).fill(-1);
         let index_arr = [];
-
-        for (let i = 0; i < frames; i++) {
-            frame_arr[i] = -1;
-        }
 
         for (let i = 0; i < seq.length; i++) {
             flag1 = 0;
             flag2 = 0;
-            hit = false;
-            fault = false;
+            let hit = false;
+            let fault = false;
 
             for (let j = 0; j < frame; j++) {
                 if (seq[i] === frame_arr[j]) {
-                    flag1 = 1;
-                    flag2 = 1;
+                    flag1 = flag2 = 1;
                     hit = true;
                     index_arr.push(j);
                     break;
@@ -121,22 +137,17 @@ const OPR = (props) => {
             }
 
             if (flag2 === 0) {
-                flag3 = 0;
-
+                temp = Array(frame).fill(-1);
                 for (let j = 0; j < frame; j++) {
-                    temp[j] = -1;
-
                     for (let k = i + 1; k < seq.length; k++) {
                         if (frame_arr[j] === seq[k]) {
                             temp[j] = k;
-
                             break;
                         }
                     }
                 }
 
-                console.log("temp ", temp);
-
+                flag3 = 0;
                 for (let j = 0; j < frame; j++) {
                     if (temp[j] === -1) {
                         pos = j;
@@ -148,7 +159,6 @@ const OPR = (props) => {
                 if (flag3 === 0) {
                     max = temp[0];
                     pos = 0;
-
                     for (let j = 1; j < frame; j++) {
                         if (temp[j] > max) {
                             max = temp[j];
@@ -156,28 +166,17 @@ const OPR = (props) => {
                         }
                     }
                 }
+
                 frame_arr[pos] = seq[i];
                 index_arr.push(pos);
                 faults++;
                 fault = true;
             }
 
-            let elements = [];
-            elements.push(`P${i + 1}   (${seq[i]})`);
-            for (let j = 0; j < frame; j++) {
-                elements.push(frame_arr[j]);
-            }
-            if (hit === true) {
-                elements.push("HIT");
-            } else if (fault === true) {
-                elements.push("FAULT");
-            }
-
+            let elements = [`P${i + 1}   (${seq[i]})`, ...frame_arr];
+            elements.push(hit ? "HIT" : fault ? "FAULT" : "");
             result.push(elements);
         }
-
-        console.log(result);
-        console.log("Total Page Faults : ", faults);
 
         return { result, faults, index_arr };
     };
@@ -189,64 +188,33 @@ const OPR = (props) => {
             <>
                 {result.map((item, index) => {
                     let lastEle = item[item.length - 1];
-
                     return (
-                        <tr>
-                            {item.map((i, ind) => {
-                                return (
-                                    <>
-                                        {ind !== index_arr[index] + 1 ? (
-                                            <>
-                                                <td
-                                                    className={classes.main}
-                                                    style={{
-                                                        backgroundColor: `${ind !== item.length - 1
-                                                                ? "inherit"
-                                                                : lastEle === "HIT"
-                                                                    ? "#7C99AC"
-                                                                    : "#FFCDDD"
-                                                            }`,
-                                                        border: `${ind !== item.length - 1
-                                                                ? "1px solid white"
-                                                                : "1px solid black"
-                                                            }`,
-                                                        color: `${ind !== item.length - 1 ? "inherit" : "black"
-                                                            }`,
-                                                    }}
-                                                >
-                                                    {i}
-                                                </td>
-                                            </>
-                                        ) : (
-                                            <>
-                                                {lastEle === "HIT" ? (
-                                                    <>
-                                                        <td
-                                                            className={classes.main}
-                                                            style={{
-                                                                backgroundColor: "rgb(105 228 0 / 86%)",
-                                                            }}
-                                                        >
-                                                            {i}
-                                                        </td>
-                                                    </>
-                                                ) : (
-                                                    <>
-                                                        <td
-                                                            className={classes.main}
-                                                            style={{
-                                                                backgroundColor: "#fa2c2c",
-                                                            }}
-                                                        >
-                                                            {i}
-                                                        </td>
-                                                    </>
-                                                )}
-                                            </>
-                                        )}
-                                    </>
-                                );
-                            })}
+                        <tr key={index}>
+                            {item.map((i, ind) => (
+                                <td
+                                    key={ind}
+                                    className={classes.main}
+                                    style={{
+                                        backgroundColor:
+                                            ind !== index_arr[index] + 1
+                                                ? ind === item.length - 1
+                                                    ? lastEle === "HIT"
+                                                        ? "#7C99AC"
+                                                        : "#FFCDDD"
+                                                    : "inherit"
+                                                : lastEle === "HIT"
+                                                ? "rgb(105 228 0 / 86%)"
+                                                : "#fa2c2c",
+                                        border:
+                                            ind === item.length - 1
+                                                ? "1px solid black"
+                                                : "1px solid white",
+                                        color: ind === item.length - 1 ? "black" : "inherit",
+                                    }}
+                                >
+                                    {i}
+                                </td>
+                            ))}
                         </tr>
                     );
                 })}
@@ -259,34 +227,27 @@ const OPR = (props) => {
 
     return (
         <>
-            <TableHeader
-                algoName={"OPR (Optimal Page Replacement)"}
-            />
-
+            <TableHeader algoName={"OPR (Optimal Page Replacement)"} />
             <Box className={classes.table}>
-                <table style={{ overflowX: "auto" }}>
-                    <thead>
-                        <tr>
-                            <th
-                                className={classes.main}
-                                style={{ backgroundColor: "#273c3c", padding: "20px" }}
-                            >
-                                PAGES
-                            </th>
-                            {frameCreator(arr)}
-                            <th
-                                className={classes.main}
-                                style={{ backgroundColor: "#273c3c", padding: "20px" }}
-                            >
-                                RESULT
-                            </th>
-                        </tr>
-                    </thead>
+                <div className={classes.responsiveWrapper}>
+                    <table style={{ margin: "0 auto" }}>
+                        <thead>
+                            <tr>
+                                <th className={classes.main} style={{ backgroundColor: "#273c3c", padding: "20px" }}>
+                                    PAGES
+                                </th>
+                                {frameCreator(arr)}
+                                <th className={classes.main} style={{ backgroundColor: "#273c3c", padding: "20px" }}>
+                                    RESULT
+                                </th>
+                            </tr>
+                        </thead>
+                        <tbody className={classes.result}>
+                            {rowResultMaker(frames, pageSeq)}
+                        </tbody>
+                    </table>
+                </div>
 
-                    <tbody className={classes.result}>
-                        {rowResultMaker(frames, pageSeq)}
-                    </tbody>
-                </table>
                 <Box className={classes.summary}>
                     <Box style={{ textAlign: "center", marginTop: 14 }}>
                         <Typography className={classes.header}>Summary</Typography>

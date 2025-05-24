@@ -33,7 +33,7 @@ const PieChart = ({ hit = 0, fault = 0 }) => {
     const pieOptions = {
         title: "Hit Vs Fault Comparison",
         is3D: true,
-        backgroundColor: "#1a202c",
+        backgroundColor: "#1e293b",
         titleTextStyle: {
             color: "#fff",
             fontSize: 24,
@@ -48,7 +48,7 @@ const PieChart = ({ hit = 0, fault = 0 }) => {
         },
         legend: {
             textStyle: {
-                color: "white",
+                color: "white"
             },
         },
     };

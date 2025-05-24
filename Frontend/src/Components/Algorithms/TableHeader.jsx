@@ -5,7 +5,6 @@ import { makeStyles, Box, Typography } from "@material-ui/core";
 const useStyles = makeStyles((theme) => ({
     mainContainer: {
         width: "100%",
-        backgroundColor: "#1a202c",
         display: "flex",
         flexDirection: "column",
         alignItems: "center",
