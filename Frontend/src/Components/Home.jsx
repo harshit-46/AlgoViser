@@ -1,5 +1,3 @@
-// 0f172a
-
 import { Link } from 'react-router-dom';
 import page from '../assets/images/pageReplacement1.png';
 import LRU from '../assets/images/LRU.png';
@@ -32,7 +30,7 @@ const Home = () => {
         <div className="min-h-screen text-white px-6 pb-12 pt-16">
             <div className="max-w-4xl mx-auto text-center space-y-6 mb-12">
                 <h1 className="text-3xl md:text-4xl font-bold">Page Replacement Algorithm Simulator</h1>
-                <p className="text-base md:text-lg text-gray-300 leading-relaxed">
+                <p className="text-base pb-4 px-4 md:text-lg text-gray-300 leading-relaxed">
                     When a page fault occurs, the required page has to be brought from the secondary memory. 
                     If all the frames of main memory are already occupied, then a page has to be replaced. 
                     The page replacement algorithm decides which memory page is to be replaced.
@@ -41,7 +39,7 @@ const Home = () => {
                     src={page} 
                     alt="Page Replacement Illustration" 
                     loading="lazy"
-                    className="mx-auto w-[300px] h-[300px] object-contain rounded-2xl" 
+                    className="mx-auto w-[300px] h-[300px] object-contain rounded-2xl mb-12" 
                 />
                 <Link 
                     to="/simulator" 
@@ -65,7 +63,7 @@ const Home = () => {
             </section>
 
             <section className="text-center space-y-10" aria-labelledby="algo-section">
-                <h1 id="algo-section" className="text-3xl md:text-4xl font-bold">The Page Replacement Algorithms</h1>
+                <h1 id="algo-section" className="text-3xl md:text-4xl font-bold pb-2 ">The Page Replacement Algorithms</h1>
                 <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-5 gap-6 justify-center">
                     <img src={LRU} alt="Least Recently Used (LRU)" loading="lazy" className="h-40 w-40 object-contain mx-auto hover:scale-105 transition rounded-2xl" />
                     <img src={MRU} alt="Most Recently Used (MRU)" loading="lazy" className="h-40 w-40 object-contain mx-auto hover:scale-105 transition rounded-2xl" />

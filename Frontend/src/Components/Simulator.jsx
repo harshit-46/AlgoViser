@@ -37,7 +37,7 @@ const Simulator = () => {
     };
 
     return (
-        <div className="min-h-screen flex flex-col items-center text-white px-4 pt-16">
+        <div className="min-h-screen flex flex-col items-center text-white px-4 pt-12">
             <div className="mb-6 text-center max-w-2xl">
                 <h2 className="text-5xl font-semibold mb-6 mt-8">How to Use:</h2>
                 <p className="text-gray-300">
@@ -66,7 +66,7 @@ const Simulator = () => {
                         onChange={(e) => setSequence(e.target.value)}
                     />
                 </div>
-                <div className="flex justify-around gap-4 flex-wrap mb-6">
+                <div className="flex justify-center md:justify-around gap-4 flex-wrap mb-6">
                     <button onClick={() => handleSimulate('FIFO')} className="bg-red-500 hover:bg-red-600 px-4 py-2 rounded font-semibold cursor-pointer">FCFS</button>
                     <button onClick={() => handleSimulate('OPR')} className="bg-red-500 hover:bg-red-600 px-4 py-2 rounded font-semibold cursor-pointer">OPR</button>
                     <button onClick={() => handleSimulate('SF')} className="bg-red-500 hover:bg-red-600 px-4 py-2 rounded font-semibold cursor-pointer">SF</button>
