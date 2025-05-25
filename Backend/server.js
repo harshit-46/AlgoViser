@@ -13,7 +13,7 @@ mongoose
     .catch((err) => console.error(err));
 
 app.use(cors({
-    origin: ["http://localhost:5173", "https://your-vercel-site.vercel.app"], 
+    origin: ["http://localhost:5173", "https://algoviser-five.vercel.app"], 
     methods: ["GET", "POST"],
     credentials: true,
 }));
