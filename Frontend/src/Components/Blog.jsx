@@ -3,8 +3,8 @@ import { FaClock, FaBrain, FaRedo, FaArrowAltCircleDown, FaRandom } from 'react-
 
 import FCFS_EX from '../assets/images/fifo.jpg';
 import OPR_EX from '../assets/images/OPR.jpg';
-import LRU_EX from '../assets/images/lru.jpg';
-import MRU_EX from '../assets/images/mru.jpg';
+import LRU_EX from '../assets/images/LRU.jpg';
+import MRU_EX from '../assets/images/MRU.jpg';
 import SF_EX from '../assets/images/SFJPG.png';
 
 const Blog = () => {
