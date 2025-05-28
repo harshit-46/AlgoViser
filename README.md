@@ -1,7 +1,7 @@
 
 # OS - ALGOVISER
 
-## Website Link: coming soon
+## Website Link: https://algoviser-five.vercel.app/
 
 ## Goal of the Project:
 
@@ -16,12 +16,10 @@
     HTML
     CSS
     Material-UI
-    Firebase
-    AWS
 
 ## Process of Development:
 
-    The development of the Page Replacement Algorithm Simulator project was a multi-step process that involved designing the user interface, choosing appropriate algorithms to implement, developing the application using Reactjs, JavaScript, HTML, CSS, Firebase, and deploying the application on AWS Amplify. The following are the steps involved in the development of this project:
+    The development of the Page Replacement Algorithm Simulator project was a multi-step process that involved designing the user interface, choosing appropriate algorithms to implement, developing the application using Reactjs, JavaScript, HTML, CSS, and deploying the application on vercel and render. The following are the steps involved in the development of this project:
 
 User Interface Design:
 
@@ -43,7 +41,7 @@ Application Development:
 
 Deployment:
 
-    The final step in the development process was to deploy the application on AWS Amplify. AWS Amplify is a cloud hosting platform that provides scalable, secure, and high-performance hosting for web applications.
+    The final step in the development process was to deploy the application on Vercel and Render. Vercel is a cloud hosting platform that provides scalable, secure, and high-performance hosting for web applications.
 
 Features of the Project:
 
@@ -65,15 +63,7 @@ Interactive Charts:
 
     The application generates interactive charts that show the performance of different algorithms over time.
 
-Firebase Integration: 
-
-    The application uses Firebase save user queries coming from contact form.
 
 Scalable and Reliable: 
 
     The application is hosted on AWS Amplify
-
-
-## UI Demo
-
-COMING SOON
