@@ -66,4 +66,4 @@ Interactive Charts:
 
 Scalable and Reliable: 
 
-    The application is hosted on AWS Amplify
+    The application is hosted on Vercel.
